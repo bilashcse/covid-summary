@@ -3,8 +3,8 @@
 "covid-summary" is a simple cli app to show live updates of covid-19. You can check live updates for whole worlds or specify by country.
 
 ## Features
-* Live covid-19 latest updates about worlds total death, active cases, confirm & recovered count.
-* Specific Countries covid-19 latest live update for total death, active cases, confirm & recovered count
+* Live covid-19 updates of total death, active cases, confirm & recovered count for whole world.
+* Specific Countries covid-19 latest live updates for total death, active cases, confirm & recovered count
 
 
 ## Installation
