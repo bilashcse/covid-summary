@@ -75,13 +75,13 @@ async function init() {
     .command("live", "Show live covid-19 summary", {
       country: {
         alias: "c",
-        description: "Specific country to show summary",
+        description: "Show Specific country to show summary",
         type: "string"
       }
     })
     .option("country", {
       alias: "c",
-      description: "Specific country to show summary",
+      description: "Show Specific country to show summary",
       type: "string"
     })
     .help()
