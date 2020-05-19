@@ -1,24 +1,39 @@
 #! /usr/bin/env node
-const axios = require('axios');
+const axios = require("axios");
+Spinner = require("cli-spinner").Spinner;
 
 const urlMap = {
-  baseUrl: 'https://api.covid19api.com',
-  summary: '/world/total',
+  baseUrl: "https://api.covid19api.com",
+  summary: "/world/total"
 };
+
+const spinnerObj = new Spinner({
+  text: "processing.. %s",
+  stream: process.stderr,
+  onTick: function(msg) {
+    this.clearLine(this.stream);
+    this.stream.write(msg);
+  }
+});
 
 const getCovidSummary = async () => {
   try {
+    spinnerObj.start();
     const url = `${urlMap.baseUrl}${urlMap.summary}`;
     const result = await axios({
-      method: 'get',
+      method: "get",
       url,
-      headers: { Accept: 'application/json' }, // this api needs this header set for the request
+      headers: { Accept: "application/json" }
     });
-    console.log(result.data);
+
+    spinnerObj.stop(true);
+    if (result) {
+      console.log(result.data);
+    }
   } catch (err) {
+    spinnerObj.stop(true);
     console.error(err);
   }
 };
-
 
 getCovidSummary();
