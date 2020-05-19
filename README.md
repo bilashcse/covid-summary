@@ -1,6 +1,5 @@
 <div align="center">
-# Covid-19 Summary
-**♆ covid-summary: CLI app to get live update about covid-19**
+## Covid-19 Summary
 </div>
 
 ## Features
