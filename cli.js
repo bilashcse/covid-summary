@@ -31,8 +31,10 @@ const getCovidSummary = async () => {
 
     spinnerObj.stop(true);
     if (result) {
-      console.log("Covid-19 live world summary: ");
-      console.log(result.data);
+      console.log("Covid-19 live world's summary:\n");
+      console.log("Total Confirmed: " + result.data.TotalConfirmed);
+      console.log("Total Death    : " + result.data.TotalDeaths);
+      console.log("Total Recovered: " + result.data.TotalRecovered);
     }
   } catch (err) {
     spinnerObj.stop(true);
@@ -54,19 +56,18 @@ const getSpecificCountrySummary = async name => {
     if (result) {
       const data = result.data;
       const lastIndex = result.data.length - 1;
-      console.log(`Covid-19 ${name} summary:`);
-      console.log({
-        "Total Confirmed": data[lastIndex].Confirmed,
-        "Total Death": data[lastIndex].Deaths,
-        "Total Recovered": data[lastIndex].Recovered,
-        "Total Active": data[lastIndex].Active
-      });
+      console.log(`Covid-19 ${name} summary:\n`);
+
+      console.log("Total Confirmed: " + data[lastIndex].Confirmed);
+      console.log("Total Death    : " + data[lastIndex].Deaths);
+      console.log("Total Recovered: " + data[lastIndex].Recovered);
+      console.log("Total Active   : " + data[lastIndex].Active);
     }
   } catch (err) {
     spinnerObj.stop(true);
     console.error(err);
   }
-}
+};
 
 async function init() {
   const yargs = require("yargs");
