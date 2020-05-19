@@ -14,21 +14,30 @@ $ npm i -g covid-summary
 ```
 
 ### Available Options
-Usage: covid-summary [OPTIONS] [FILTER_NAMES]...
+```
+Options:
+  live               Show live covid-19 summary
 
-To check world's live updates, run:
-```
-$ covid-summary live
-```
-or,
-```
-$ covid-summary --help
-```
-This should show:
-
-```
 Filters:
   -v, --version      Show version number
   -c, --country      Show Specific country to show summary 
   -h, --help         Show help
 ```
+
+### Usages
+```
+covid-summary [OPTIONS] [FILTER_NAMES]
+```
+
+To show live updates
+```
+covid-summary live
+```
+
+To show specific country updated
+```
+covid-summary live -c bangladesh
+```
+
+## Live Update API
+To get latest updates, I have used https://covid19api.com/.
