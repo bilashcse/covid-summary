@@ -40,4 +40,4 @@ covid-summary live -c bangladesh
 ```
 
 ## Live Update API
-To get latest updates, I have used https://covid19api.com/.
+To get latest updates, I have used [covid19api](https://covid19api.com)
