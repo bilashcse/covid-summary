@@ -1,0 +1,14 @@
+{
+  "name": "covid-summary",
+  "version": "0.0.1",
+  "description": "covid summary cli",
+  "main": "cli.js",
+  "bin": {
+    "covid-summary": "cli.js"
+  },
+  "author": "bilash <bilashcse@gmail.com> (https://github.com/bilashcse)",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
+}
