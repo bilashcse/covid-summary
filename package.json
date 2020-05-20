@@ -6,6 +6,16 @@
   "bin": {
     "covid-summary": "cli.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bilashcse/covid-summary.git"
+  },
+  "keywords": [
+    "cli",
+    "covid",
+    "covid-19",
+    "live"
+  ],
   "author": "bilash <bilashcse@gmail.com> (https://github.com/bilashcse)",
   "license": "MIT",
   "dependencies": {
