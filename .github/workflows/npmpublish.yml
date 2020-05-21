@@ -25,24 +25,14 @@
           
           
           
-name: NPM package publish
+name: publish
 
 on:
   push:
     branches:
       - master
 
-jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v2
-#       - uses: actions/setup-node@v1
-#         with:
-#           node-version: 12
-#       - run: npm ci
-#       - run: npm test
-
+# jobs:
 #   publish-npm:
 # #     needs: build
 #     runs-on: ubuntu-latest
@@ -57,16 +47,26 @@ jobs:
 #         env:
 #           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 
-  publish-gpr:
-#     needs: build
+#   publish-gpr:
+# #     needs: build
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@master
+#       - uses: actions/setup-node@master
+#         with:
+#           node-version: 10.10.0
+#           registry-url: https://npm.pkg.github.com/
+#       - run: npm ci
+#       - run: npm publish
+#         env:
+#           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+jobs:
+  release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@master
+      - name: Create GitHub release
+        uses: bilashcse/covid-summary@master
         with:
-          node-version: 10.10.0
-          registry-url: https://npm.pkg.github.com/
-      - run: npm ci
-      - run: npm publish
+          version_regex: ^v[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
