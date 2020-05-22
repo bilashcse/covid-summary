@@ -1,8 +1,30 @@
 #! /usr/bin/env node
 const axios = require("axios");
 const yargs = require("yargs");
+const Table = require("cli-table");
+const moment = require("moment");
 
 Spinner = require("cli-spinner").Spinner;
+
+const table = new Table({
+  chars: {
+    top: "═",
+    "top-mid": "╤",
+    "top-left": "╔",
+    "top-right": "╗",
+    bottom: "═",
+    "bottom-mid": "╧",
+    "bottom-left": "╚",
+    "bottom-right": "╝",
+    left: "║",
+    "left-mid": "╟",
+    mid: "─",
+    "mid-mid": "┼",
+    right: "║",
+    "right-mid": "╢",
+    middle: "│"
+  }
+});
 
 const urlMap = {
   baseUrl: "https://api.covid19api.com",
@@ -57,11 +79,24 @@ const getSpecificCountrySummary = async name => {
       const data = result.data;
       const lastIndex = result.data.length - 1;
       console.log(`Covid-19 ${name} summary:\n`);
+      
+      for (let i = 0; i < result.data.length; i++) {
+        let current = result.data[i];
+        let yesterday = result.data[i - 1] || {};
+        const confirmed = current.Confirmed - (yesterday.Confirmed || 0);
+        const death = current.Deaths - (yesterday.Deaths || 0);
+        const recovered = current.Recovered - (yesterday.Recovered || 0);
 
-      console.log("Total Confirmed: " + data[lastIndex].Confirmed);
-      console.log("Total Death    : " + data[lastIndex].Deaths);
-      console.log("Total Recovered: " + data[lastIndex].Recovered);
-      console.log("Total Active   : " + data[lastIndex].Active);
+        table.unshift([
+          moment(current.Date).local().format("DD MMM, YYYY"),
+          confirmed,
+          death,
+          recovered
+        ]);
+      }
+
+      table.unshift(["Date", "Confirmed", "Death", "Recovered"]);
+      console.log(table.toString());
     }
   } catch (err) {
     spinnerObj.stop(true);
