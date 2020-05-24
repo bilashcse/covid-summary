@@ -1,6 +1,6 @@
 {
   "name": "covid-summary",
-  "version": "0.1.0",
+  "version": "0.0.16",
   "description": "covid summary cli",
   "main": "cli.js",
   "bin": {
