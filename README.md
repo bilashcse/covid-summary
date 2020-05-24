@@ -15,20 +15,18 @@ $ npm i -g covid-summary
 
 ### Available Options
 ```
-Options:
-  live               Show live covid-19 summary
+Usage: cli [options] [command]
 
-Filters:
-  -v, --version      Show version number
-  -c, --country      Show Specific country to show summary 
-  -h, --help         Show help
+Options:
+  -V, --version          output the version number
+  -c, --country <value>  Show country status
+  -h, --help             display help for command
+
+Commands:
+  live                   Show live covid-19 worlds summary
 ```
 
 ### Usages
-```
-covid-summary [OPTIONS] [FILTER_NAMES]
-```
-
 To show live updates
 ```
 covid-summary live
@@ -36,7 +34,7 @@ covid-summary live
 
 To show specific country updated
 ```
-covid-summary live -c bangladesh
+covid-summary -c bangladesh
 ```
 
 ## Live Update API
