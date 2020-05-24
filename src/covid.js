@@ -12,7 +12,6 @@ const urlMap = {
 };
 
 const getCovidSummary = async () => {
-    console.log("111")
   try {
     spinnerObj.start();
     const url = `${urlMap.baseUrl}${urlMap.summary}`;
@@ -36,7 +35,6 @@ const getCovidSummary = async () => {
 };
 
 const getSpecificCountrySummary = async (name) => {
-    console.log("TWO");
   try {
     spinnerObj.start();
     const url = `${urlMap.baseUrl}${urlMap.country}/${name}`;
