@@ -12,7 +12,7 @@ program
   .description("Show live covid-19 worlds summary")
   .action(getCovidSummary);
 program
-  .option('-c, --country <value>', "Show country status")
+  .option('-c, --country <name>', "Show specific country covid-19 summary")
   .action(async function () {
     if(program.country) await getSpecificCountrySummary(program.country);
   })

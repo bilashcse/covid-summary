@@ -19,7 +19,7 @@ Usage: cli [options] [command]
 
 Options:
   -V, --version          output the version number
-  -c, --country <value>  Show country status
+  -c, --country <name>  Show specific country covid-19 summary
   -h, --help             display help for command
 
 Commands:
